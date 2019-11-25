@@ -29,17 +29,3 @@
   </div>
 </body>
 </html>
-
-  context 'within <body>' do
-
-
-      it 'the content section contains the correct header sizes, text content, links and images' do
-        content_section = parsed_html.search('#content').first
-
-        expect(content_section.children.any? {|ch| ch.name == "a"}).to be == true, "No 'a' tags found"
-        links = content_section.children.select {|ch| ch.name == "a"}
-        expect(links.length).to be >= 2, "Make sure to include all three 'p' tags"
-        expect(links[0].attributes["href"].value).to eq("http://www.lonelyplanet.com/saudi-arabia/riyadh")
-        expect(links[1].attributes["href"].value).to eq("http://en.wikipedia.org/wiki/Riyadh")
-      
-      end
